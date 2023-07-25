@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Formula1Teams
 
 def home(request):
@@ -8,9 +8,19 @@ def home(request):
 
 def insert(request):
     if request.method == 'POST':
-        data = request.POST
-        add_f1teams = Formula1Teams.objects.create(name=data['name'], country=data['country'], driver1=data['driver1'], driver2=data['driver2'], car=data['car'])
+        one = request.POST
+        print(one)
+        add_f1teams = Formula1Teams.objects.create(name=one['name'], country=one['country'], driver1=one['driver1'], driver2=one['driver2'], car=one['car'])
         add_f1teams.save()
         return redirect('home')
     else:
         return render(request, 'insert.html')
+
+def delete(request):
+    if request.method == 'POST':
+        two = request.POST.get('delete')
+        Formula1Teams.objects.filter(id = two).delete()
+        print(two)
+        return redirect('home')
+    else:
+        return render(request, 'delete.html')

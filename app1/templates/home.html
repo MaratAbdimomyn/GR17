@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     {% for teams in f1teams %}
     <ul style="display: flex; flex-direction: row; list-style-type: none;">
+        <li style="margin-right: 20px; width: 50px;">{{ teams.id }}</li>
         <li style="margin-right: 20px; width: 160px;">{{ teams.name }}</li>
         <li style="margin-right: 20px; width: 100px;">{{ teams.country }}</li>
         <li style="margin-right: 20px; width: 120px;">{{ teams.driver1 }}</li>
@@ -16,4 +19,5 @@
     </ul>
     {% endfor %}
 </body>
+
 </html>
