@@ -22,15 +22,17 @@
 </head>
 
 <body style="background-color: darkblue; font-family: Arial;">
-    <h2 style="margin: 40px; display: flex; flex-direction: row; justify-content: center; color: white;">Добавьте новую
-        команду</h2>
+    <h2 style="margin: 40px; display: flex; flex-direction: row; justify-content: center; color: white;">Измените данные
+        команды</h2>
     <form method="post" style="display: flex; flex-direction: row; justify-content: center;">
         {% csrf_token %}
+        <input type="text" name="update" placeholder="ID команды данные которой вы хотите изменить"
+            style="width: 310px">
         <input type="text" name="name" placeholder="Название команды">
-        <input type="text" name="country" placeholder="Страна">
+        <input type="text" name="country" placeholder="Страна" style="width: 110px">
         <input type="text" name="driver1" placeholder="Первый пилот">
         <input type="text" name="driver2" placeholder="Второй пилот">
-        <input type="text" name="car" placeholder="Болид">
+        <input type="text" name="car" placeholder="Болид" style="width: 80px">
         <button type="submit">Отправить</button>
     </form>
 </body>

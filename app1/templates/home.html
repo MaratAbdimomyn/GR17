@@ -5,19 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style type="text/css">
+        th {
+            width: 200px;
+            border: solid 1px black;
+            padding: 10px;
+        }
+        td {
+            width: 200px;
+            border: solid 1px black;
+            padding: 10px;
+        }
+        table {
+            border-collapse:collapse;
+        }
+    </style>
 </head>
 
-<body>
+<body style="font-family: Tahoma; background-color: darkblue">
+    <h2 style="margin: 40px; display: flex; flex-direction: row; justify-content: center; color: white;">Список команд Формулы 1 в 2023 году</h2>
+    <div style="margin: 40px; display: flex; flex-direction: row; justify-content: center;">
+    <a style="text-decoration: none; border: solid 1px; margin: 20px; padding: 10px; border-radius: 5px; background-color: dodgerblue; color: white;" href="insert">Добавить команду</a>
+    <a style="text-decoration: none; border: solid 1px; margin: 20px; padding: 10px; border-radius: 5px; background-color: dodgerblue; color: white;" href="update">Изменить данные команды</a>
+    <a style="text-decoration: none; border: solid 1px; margin: 20px; padding: 10px; border-radius: 5px; background-color: indianred; color: white;" href="delete">Удалить команду</a></div>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+        <table style="background-color: white;">
+            <tr>
+            <th>ID</th>
+            <th style="background-color: dodgerblue; color: white;">Name</th>
+            <th>Country</th>
+            <th>Driver 1</th>
+            <th>Driver 2</th>
+            <th>Car</th>
+            </tr>
     {% for teams in f1teams %}
-    <ul style="display: flex; flex-direction: row; list-style-type: none;">
-        <li style="margin-right: 20px; width: 50px;">{{ teams.id }}</li>
-        <li style="margin-right: 20px; width: 160px;">{{ teams.name }}</li>
-        <li style="margin-right: 20px; width: 100px;">{{ teams.country }}</li>
-        <li style="margin-right: 20px; width: 120px;">{{ teams.driver1 }}</li>
-        <li style="margin-right: 20px; width: 120px;">{{ teams.driver2 }}</li>
-        <li>{{ teams.car }}</li>
-    </ul>
+    <tr>
+        <td>{{ teams.id }}</td>
+        <td style="background-color: dodgerblue; color: white;">{{ teams.name }}</td>
+        <td>{{ teams.country }}</td>
+        <td>{{ teams.driver1 }}</td>
+        <td>{{ teams.driver2 }}</td>
+        <td>{{ teams.car }}</td>
+    </tr>
     {% endfor %}
+        </table>
+    </div>
 </body>
 
 </html>

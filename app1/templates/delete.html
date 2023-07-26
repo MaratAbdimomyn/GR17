@@ -5,12 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        input {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            width: 270px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: indianred
+        }
+    </style>
 </head>
 
-<body>
-    <form method="post">
+<body style="background-color: darkblue; font-family: Arial;">
+    <h2 style="margin: 40px; display: flex; flex-direction: row; justify-content: center; color: white;">Удалите команду
+    </h2>
+    <form method="post" style="display: flex; flex-direction: row; justify-content: center;">
         {% csrf_token %}
-        <input type="text" name="delete" placeholder="Удалить ID">
+        <input type="text" name="delete" placeholder="ID команды которую вы хотите удалить">
         <button type="submit">Удалить</button>
     </form>
 </body>

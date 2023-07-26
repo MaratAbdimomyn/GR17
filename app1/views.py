@@ -24,3 +24,17 @@ def delete(request):
         return redirect('home')
     else:
         return render(request, 'delete.html')
+    
+def update(request):
+    if request.method == 'POST':
+        four = request.POST.get('update')
+        new_name = request.POST.get('name')
+        new_country = request.POST.get('country')
+        new_driver1 = request.POST.get('driver1')
+        new_driver2 = request.POST.get('driver2')
+        new_car = request.POST.get('car')
+        update_f1teams = Formula1Teams.objects.filter(id = four)
+        update_f1teams.update(name=new_name, country=new_country, driver1=new_driver1, driver2=new_driver2, car=new_car)
+        return redirect('home')
+    else:
+        return render(request, 'update.html')
