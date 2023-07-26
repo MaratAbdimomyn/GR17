@@ -41,11 +41,15 @@
 <body style="background-color: darkblue; font-family: Arial;">
     <h2 style="margin: 40px; display: flex; flex-direction: row; justify-content: center; color: white;">Поиск команды
     </h2>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+        <a style="text-decoration: none; border: solid 1px; margin: 10px; padding: 10px; border-radius: 5px; background-color: dodgerblue; color: white;"
+                href="/">Главная страница</a></div>
     <form method="post" style="display: flex; flex-direction: row; justify-content: center;">
         {% csrf_token %}
         <input type="text" name="search" placeholder="Введите название команды">
         <button type="submit">Найти</button>
     </form>
+    
     <div style="display: flex; flex-direction: row; justify-content: center; margin: 40px;">
     <table style="background-color: white;">
         <tr>
