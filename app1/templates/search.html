@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            width: 270px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: indianred
+        }
+
+        th {
+            width: 200px;
+            border: solid 1px black;
+            padding: 10px;
+        }
+
+        td {
+            width: 200px;
+            border: solid 1px black;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body style="background-color: darkblue; font-family: Arial;">
+    <h2 style="margin: 40px; display: flex; flex-direction: row; justify-content: center; color: white;">Поиск команды
+    </h2>
+    <form method="post" style="display: flex; flex-direction: row; justify-content: center;">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Введите название команды">
+        <button type="submit">Найти</button>
+    </form>
+    <div style="display: flex; flex-direction: row; justify-content: center; margin: 40px;">
+    <table style="background-color: white;">
+        <tr>
+            <th>ID</th>
+            <th style="background-color: dodgerblue; color: white;">Name</th>
+            <th>Country</th>
+            <th>Driver 1</th>
+            <th>Driver 2</th>
+            <th>Car</th>
+        </tr>
+        {% for teams in snatch %}
+        <tr>
+            <td>{{ teams.id }}</td>
+            <td style="background-color: dodgerblue; color: white;">{{ teams.name }}</td>
+            <td>{{ teams.country }}</td>
+            <td>{{ teams.driver1 }}</td>
+            <td>{{ teams.driver2 }}</td>
+            <td>{{ teams.car }}</td>
+        </tr>
+        {% endfor%}
+    </table>
+    </div>
+</body>
+
+</html>

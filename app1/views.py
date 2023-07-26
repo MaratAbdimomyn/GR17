@@ -38,3 +38,12 @@ def update(request):
         return redirect('home')
     else:
         return render(request, 'update.html')
+    
+def search(request):
+    if request.method == 'POST':
+        team1 = request.POST.get('search')
+        snatch = Formula1Teams.objects.filter(name = team1)
+        context = {'snatch':snatch}
+        return render(request, 'search.html', context)
+    else:
+        return render(request, 'search.html')
